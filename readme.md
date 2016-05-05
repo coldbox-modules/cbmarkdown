@@ -2,7 +2,7 @@
 
 # Welcome to the CBMarkdown Project
 
-This module will give you markdown processing capabilities via the MarkdownJ project.
+This module will give you markdown processing capabilities via the txtmark project: https://github.com/rjeschke/txtmark
 
 ## License
 Apache License, Version 2.0.
@@ -10,10 +10,11 @@ Apache License, Version 2.0.
 ## Important Links
 - https://github.com/ColdBox/cbox-markdown
 - http://forgebox.io/view/cbmarkdown
+- https://github.com/rjeschke/txtmark
 
 ## System Requirements
 - Lucee 4.5+
-- ColdFusion 9+
+- ColdFusion 10+
 
 ## Instructions
 
