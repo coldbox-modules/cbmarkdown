@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ColdBox/cbox-markdown.svg?branch=development)](https://travis-ci.org/ColdBox/cbox-markdown)
+[![Build Status](https://travis-ci.org/coldbox-modules/cbox-markdown.svg?branch=development)](https://travis-ci.org/coldbox-modules/cbox-markdown)
 
 # Welcome to the CBMarkdown Project
 
@@ -8,7 +8,7 @@ This module will give you markdown processing capabilities via the txtmark proje
 Apache License, Version 2.0.
 
 ## Important Links
-- https://github.com/ColdBox/cbox-markdown
+- https://github.com/coldbox-modules/cbox-markdown
 - http://forgebox.io/view/cbmarkdown
 - https://github.com/rjeschke/txtmark
 
