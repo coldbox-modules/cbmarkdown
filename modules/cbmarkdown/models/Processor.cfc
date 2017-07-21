@@ -25,12 +25,8 @@ component accessors="true" singleton{
 	function init( required javaLoader ){
 		// store references
 		variables.javaLoader = arguments.javaLoader;
-		// Setup markdown processor
-		variables.config = arguments.javaLoader.create( "com.github.rjeschke.txtmark.Configuration" )
-			.builder()
-			.forceExtentedProfile()
-			.build();
-		variables.processor = arguments.javaLoader.create( "com.github.rjeschke.txtmark.Processor" );
+		variables.extension = arguments.javaloader.create( "org.pegdown.Extensions" );
+		variables.processor = arguments.javaloader.create( "org.pegdown.PegDownProcessor" ).init( extension.ALL );
 		return this;
 	}
 
@@ -39,7 +35,10 @@ component accessors="true" singleton{
 	* @txt The markdown text to convert
 	*/
 	function toHTML( required txt ){
-		return trim( variables.processor.process( trim( arguments.txt ), variables.config ) );
-	}
-	
+		return trim(
+			variables.processor.markdownToHTML(
+				trim( arguments.txt )
+			)
+		);
+	}	
 }
