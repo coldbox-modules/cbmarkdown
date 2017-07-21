@@ -35,7 +35,7 @@ component extends="coldbox.system.testing.BaseTestCase" appMapping="/root"{
 				var event = execute( event="main.index" );
 				var prc = event.getPrivateCollection();
 				expect(	prc.html )
-					.toInclude( "<h1>Introduction</h1>" );
+					.toInclude( "Introduction" );
 			});
 
 		});

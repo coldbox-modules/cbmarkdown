@@ -120,3 +120,23 @@ Since it is inconvenient to run the gulp command on your terminal after every ch
 ```
 gulp watch
 ```
+
+> ##### `item`
+
+> Creates a new item resource.
+
+> | Name | Type | Required | Default | Description |
+> | --- | --- | --- | --- | --- | 
+> | data | any | true | | The data or model to serialize with fractal. |
+> | transformer | AbstractTransformer or closure | true | | The class or closure that will transform the given data |
+> | serializer | Serializer | false | The default item serializer for the Manager | The serializer for the transformed data.  If not provided, uses the default item serializer set for the Manager. |
+
+> ##### `collection`
+
+> Creates a new collection resource.
+
+> | Name | Type | Required | Default | Description |
+> | --- | --- | --- | --- | --- |
+> | data | any | true | | The data or model to serialize with fractal. |
+> | transformer | AbstractTransformer or closure | true | | The class or closure that will transform the given data |
+> | serializer | Serializer | false | The default collection serializer for the Manager | The serializer for the transformed data.  If not provided, uses the default collection serializer set for the Manager. |
