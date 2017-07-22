@@ -38,11 +38,11 @@ component singleton {
 		var TE = jl.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
 		return jl.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
 			.init()
-			.set( TE.COLUMN_SPANS, false )
-        	.set( TE.APPEND_MISSING_COLUMNS, true )
-        	.set( TE.DISCARD_EXTRA_COLUMNS, true )
+			.set( TE.COLUMN_SPANS, javacast( "boolean", false ) )
+        	.set( TE.APPEND_MISSING_COLUMNS, javacast( "boolean", true ) )
+        	.set( TE.DISCARD_EXTRA_COLUMNS, javacast( "boolean", true ) )
         	.set( TE.CLASS_NAME, "table" )
-        	.set( TE.HEADER_SEPARATOR_COLUMN_MATCH, true )
+        	.set( TE.HEADER_SEPARATOR_COLUMN_MATCH, javacast( "boolean", true ) )
         	.set( variables.StaticParser.EXTENSIONS, [
         		TE.create()
         	] );
