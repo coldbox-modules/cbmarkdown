@@ -6,16 +6,7 @@
 * @author Luis Majano
 * Convert markdown to HTML via the MarkdownJ Java library
 */
-component accessors="true" singleton{
-
-	/**
-	* MarkdownJ processor
-	*/
-	property name="processor";
-	/**
-	* Java loader class
-	*/
-	property name="javaloader";
+component singleton {
 
 	/**
 	* Constructor
@@ -24,9 +15,13 @@ component accessors="true" singleton{
 	*/
 	function init( required javaLoader ){
 		// store references
-		variables.javaLoader = arguments.javaLoader;
-		variables.extension = arguments.javaloader.create( "org.pegdown.Extensions" );
-		variables.processor = arguments.javaloader.create( "org.pegdown.PegDownProcessor" ).init( extension.ALL );
+		variables.jl = arguments.javaLoader;
+		variables.StaticParser = jl.create( "com.vladsch.flexmark.parser.Parser" );
+		var options = createOptions();
+		variables.parser = StaticParser.builder( options ).build();
+		variables.renderer = jl.create( "com.vladsch.flexmark.html.HtmlRenderer" )
+			.builder( options )
+			.build();
 		return this;
 	}
 
@@ -35,10 +30,22 @@ component accessors="true" singleton{
 	* @txt The markdown text to convert
 	*/
 	function toHTML( required txt ){
-		return trim(
-			variables.processor.markdownToHTML(
-				trim( arguments.txt )
-			)
-		);
-	}	
+		var document = variables.parser.parse( trim( arguments.txt ) );
+		return trim( variables.renderer.render( document ) );
+	}
+
+	private function createOptions() {
+		var TE = jl.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
+		return jl.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
+			.init()
+			.set( TE.COLUMN_SPANS, false )
+        	.set( TE.APPEND_MISSING_COLUMNS, true )
+        	.set( TE.DISCARD_EXTRA_COLUMNS, true )
+        	.set( TE.CLASS_NAME, "table" )
+        	.set( TE.HEADER_SEPARATOR_COLUMN_MATCH, true )
+        	.set( variables.StaticParser.EXTENSIONS, [
+        		TE.create()
+        	] );
+	}
+
 }
