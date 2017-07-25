@@ -12,15 +12,17 @@ component singleton {
 	* Constructor
 	* @javaLoader The javaloader class
 	* @javaLoader.inject loader@cbjavaloader
+	* @options The module options
+	* @options.inject coldbox:modulesettings:cbmarkdown
 	*/
-	function init( required javaLoader ){
+	function init( required javaloader, required struct options ){
 		// store references
-		variables.jl = arguments.javaLoader;
-		variables.StaticParser = jl.create( "com.vladsch.flexmark.parser.Parser" );
-		var options = createOptions();
-		variables.parser = StaticParser.builder( options ).build();
-		variables.renderer = jl.create( "com.vladsch.flexmark.html.HtmlRenderer" )
-			.builder( options )
+		variables.javaloader = arguments.javaLoader;
+		variables.staticParser = javaloader.create( "com.vladsch.flexmark.parser.Parser" );
+		var parserOptions = createOptions( arguments.options );
+		variables.parser = staticParser.builder( parserOptions ).build();
+		variables.renderer = javaloader.create( "com.vladsch.flexmark.html.HtmlRenderer" )
+			.builder( parserOptions )
 			.build();
 		return this;
 	}
@@ -34,18 +36,65 @@ component singleton {
 		return trim( variables.renderer.render( document ) );
 	}
 
-	private function createOptions() {
-		var TE = jl.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
-		return jl.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
+	/**
+	* Create a parser options object for the FlexMark parser.
+	*
+	* @options A struct of options for the parser.
+	*
+	* @return  A parser options object.
+	*/
+	private function createOptions( required struct options ) {
+		structAppend( arguments.options, defaultOptions() );
+
+		var staticTableExtension = javaloader.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
+		return javaloader.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
 			.init()
-			.set( TE.COLUMN_SPANS, javacast( "boolean", false ) )
-        	.set( TE.APPEND_MISSING_COLUMNS, javacast( "boolean", true ) )
-        	.set( TE.DISCARD_EXTRA_COLUMNS, javacast( "boolean", true ) )
-        	.set( TE.CLASS_NAME, "table" )
-        	.set( TE.HEADER_SEPARATOR_COLUMN_MATCH, javacast( "boolean", true ) )
-        	.set( variables.StaticParser.EXTENSIONS, [
-        		TE.create()
-        	] );
+			.set(
+				staticTableExtension.COLUMN_SPANS,
+				javacast( "boolean", arguments.options.tableOptions.columnSpans )
+			)
+        	.set(
+        		staticTableExtension.APPEND_MISSING_COLUMNS,
+        		javacast( "boolean", arguments.options.tableOptions.appendMissingColumns )
+        	)
+        	.set(
+        		staticTableExtension.DISCARD_EXTRA_COLUMNS,
+        		javacast( "boolean", arguments.options.tableOptions.discardExtraColumns )
+        	)
+        	.set(
+        		staticTableExtension.CLASS_NAME,
+        		arguments.options.tableOptions.className
+        	)
+        	.set(
+        		staticTableExtension.HEADER_SEPARATOR_COLUMN_MATCH,
+        		javacast( "boolean", arguments.options.tableOptions.headerSeparationColumnMatch )
+        	)
+        	.set(
+        		variables.staticParser.EXTENSIONS,
+        		[ staticTableExtension.create() ]
+        	);
+	}
+
+	/**
+	* Return the default parser options to merge with the user's options.
+	*
+	* @return The default parser options struct.
+	*/
+	private struct function defaultOptions() {
+		return {
+			tableOptions = {
+				// Treat consecutive pipes at the end of a column as defining spanning column.
+				columnSpans = true,
+				// Whether table body columns should be at least the number or header columns.
+				appendMissingColumns = true,
+				// Whether to discard body columns that are beyond what is defined in the header
+				discardExtraColumns = true,
+				// Class name to use on tables
+				className = "table",
+				// When true only tables whose header lines contain the same number of columns as the separator line will be recognized
+				headerSeparationColumnMatch = true
+			}
+		};
 	}
 
 }
