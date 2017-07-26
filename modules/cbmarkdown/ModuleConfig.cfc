@@ -28,13 +28,27 @@ component {
 	* Configure this module
 	*/
 	function configure(){
+		settings = {
+			tableOptions = {
+				// Treat consecutive pipes at the end of a column as defining spanning column.
+				columnSpans = true,
+				// Whether table body columns should be at least the number or header columns.
+				appendMissingColumns = true,
+				// Whether to discard body columns that are beyond what is defined in the header
+				discardExtraColumns = true,
+				// Class name to use on tables
+				className = "table",
+				// When true only tables whose header lines contain the same number of columns as the separator line will be recognized
+				headerSeparationColumnMatch = true
+			}
+		};
 	}
 
 	/**
 	* Fired when the module is registered and activated.
 	*/
 	function onLoad(){
-		// Class load MarkdownJ Processor
+		// Class load FlexMark Processor
 		controller.getWireBox()
 			.getInstance( "loader@cbjavaloader" )
 			.appendPaths( modulePath & "/models/lib" );
