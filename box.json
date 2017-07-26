@@ -1,6 +1,6 @@
 {
     "name":"cbmarkdown Builder",
-    "version":"2.0.1",
+    "version":"3.0.0",
     "slug":"cbmarkdown-shell",
     "dependencies":{
         "coldbox":"^4.3.0",
