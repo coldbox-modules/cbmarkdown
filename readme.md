@@ -2,7 +2,7 @@
 
 # Welcome to the CBMarkdown Project
 
-This module will give you markdown processing capabilities via the txtmark project: https://github.com/rjeschke/txtmark
+This module will give you markdown processing capabilities via the flexmark-java project: https://github.com/vsch/flexmark-java
 
 ## License
 Apache License, Version 2.0.
@@ -10,7 +10,7 @@ Apache License, Version 2.0.
 ## Important Links
 - https://github.com/coldbox-modules/cbox-markdown
 - http://forgebox.io/view/cbmarkdown
-- https://github.com/rjeschke/txtmark
+- https://github.com/vsch/flexmark-java
 
 ## System Requirements
 - Lucee 4.5+
@@ -18,15 +18,35 @@ Apache License, Version 2.0.
 
 ## Instructions
 
-Just drop into your **modules** folder or use the box-cli to install
+Just use the CommandBox to install or drop into your **modules** folder:
 
 `box install cbmarkdown`
 
 ## Models
-The module registers the following mapping in WireBox: `process@cbmarkdown`. Which is the class you will use to process mardown into HTML.  There is one simple function to call on the processor:
+The module registers the following mapping in WireBox: `Processor@cbmarkdown`. Which is the class you will use to process mardown into HTML.  There is one simple function to call on the processor:
 
 * `toHTML( required txt )` - Convert markdown text to HTML.
 
+## Options
+
+A subset of the flexmark options are supported.  These can be configured in your module settings.
+
+```
+settings = {
+	tableOptions = {
+		// Treat consecutive pipes at the end of a column as defining spanning column.
+		columnSpans = true,
+		// Whether table body columns should be at least the number or header columns.
+		appendMissingColumns = true,
+		// Whether to discard body columns that are beyond what is defined in the header
+		discardExtraColumns = true,
+		// Class name to use on tables
+		className = "table",
+		// When true only tables whose header lines contain the same number of columns as the separator line will be recognized
+		headerSeparationColumnMatch = true
+	}
+};
+```
 
 ---
 
