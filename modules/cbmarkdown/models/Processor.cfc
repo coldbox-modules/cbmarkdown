@@ -6,7 +6,17 @@
 * @author Luis Majano
 * Convert markdown to HTML via the MarkdownJ Java library
 */
-component singleton {
+component accessors=true singleton{
+
+	/**
+	 * The internal parser
+	 */
+	property name="parser";
+
+	/**
+	 * The internal renderer
+	 */
+	property name="renderer";
 
 	/**
 	* Constructor
@@ -19,9 +29,11 @@ component singleton {
 		// store references
 		variables.javaloader = arguments.javaLoader;
 		variables.staticParser = javaloader.create( "com.vladsch.flexmark.parser.Parser" );
-		var parserOptions = createOptions( arguments.options );
-		variables.parser = staticParser.builder( parserOptions ).build();
-		variables.renderer = javaloader.create( "com.vladsch.flexmark.html.HtmlRenderer" )
+
+		// Build out builder with options
+		var parserOptions 	= createOptions( arguments.options );
+		variables.parser 	= staticParser.builder( parserOptions ).build();
+		variables.renderer 	= javaloader.create( "com.vladsch.flexmark.html.HtmlRenderer" )
 			.builder( parserOptions )
 			.build();
 		return this;
@@ -44,7 +56,7 @@ component singleton {
 	* @return  A parser options object.
 	*/
 	private function createOptions( required struct options ) {
-		structAppend( arguments.options, defaultOptions() );
+		structAppend( arguments.options, defaultOptions(), false );
 
 		var staticTableExtension = javaloader.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
 		return javaloader.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
