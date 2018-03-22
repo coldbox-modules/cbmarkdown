@@ -16,7 +16,8 @@
 
 	],
 	"dependencies" 	:{
-		"cbjavaloader":"^1.4.0"
+		"cbjavaloader":"^1.4.0",
+		"cbemoji":"^1.0.1"
 	},
     "ignore":[
         "**/.*",

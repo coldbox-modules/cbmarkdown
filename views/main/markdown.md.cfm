@@ -2,6 +2,10 @@
 
 ColdBox Elixir provides a clean, fluent API for defining basic [Gulp](http://gulpjs.com/) tasks for your ColdBox applications.  This project was forked from the [Laravel Elixir](https://github.com/laravel/elixir) project, so many many thanks for all their hard work and ideas.
 
+## Emoji Support
+
+We now :heart: support :sunglasses: emojis :rocket:
+
 ## How it works
 Elixir supports several common CSS, JavaScript pre-processors, and TestBox runner integrations. By leveraging your familiar `Gulpfile.js` configuration file, you can use method chaining and Elixir will allow you to fluently define your asset pipeline using conventions. For example:
 
@@ -12,7 +16,7 @@ elixir( function( mix ) {
     mix.sass( 'app.scss' )
     	// Look in the 'resourcess/css` folder
        .styles( 'modules.css' );
-       
+
    // Elixir will then output all assets to ColdBox 'includes' folder by convention.
 });
 ```
@@ -43,7 +47,7 @@ If you use a version control system, you may wish to run the npm [shrinkwrap](ht
 ```
 npm shrinkwrap
 ```
- 
+
 Once you have run this command, feel free to commit the `npm-shrinkwrap.json` into source control.
 
 ## Installing ColdBox Elixir
@@ -98,7 +102,7 @@ var elixir = require( 'coldbox-elixir' );
  */
 
 elixir( function( mix ){
-	
+
 } );
 ```
 
@@ -126,7 +130,7 @@ gulp watch
 > Creates a new item resource.
 
 > | Name | Type | Required | Default | Description |
-> | --- | --- | --- | --- | --- | 
+> | --- | --- | --- | --- | --- |
 > | data | any | true | | The data or model to serialize with fractal. |
 > | transformer | AbstractTransformer or closure | true | | The class or closure that will transform the given data |
 > | serializer | Serializer | false | The default item serializer for the Manager | The serializer for the transformed data.  If not provided, uses the default item serializer set for the Manager. |

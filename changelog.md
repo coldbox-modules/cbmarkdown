@@ -1,4 +1,8 @@
 # CHANGELOG
+
+## 3.2.0
+
+* Full Emoji support via the `cbemoji` library
 ## 3.1.0
 
 * Dropped ACF10 support

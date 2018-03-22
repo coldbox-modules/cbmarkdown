@@ -10,5 +10,9 @@ artifacts/*
 apidocs/docbox/*
 workbench/build.number
 build/*
-modules/cbjavaloader
 apidocs/cbmarkdown-APIDocs
+
+modules/cbjavaloader
+modules/cbemoji
+
+workbench/**

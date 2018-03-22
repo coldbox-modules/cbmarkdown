@@ -8,6 +8,9 @@
 */
 component accessors=true singleton{
 
+	// Emoji Support
+	property name="emojiService" inject="EmojiService@cbemoji";
+
 	/**
 	 * The internal parser
 	 */
@@ -45,7 +48,7 @@ component accessors=true singleton{
 	*/
 	function toHTML( required txt ){
 		var document = variables.parser.parse( trim( arguments.txt ) );
-		return trim( variables.renderer.render( document ) );
+		return emojiService.emojify( trim( variables.renderer.render( document ) ) );
 	}
 
 	/**
