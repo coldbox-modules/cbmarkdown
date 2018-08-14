@@ -17,8 +17,6 @@ component {
 	this.viewParentLookup 	= true;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
 	this.layoutParentLookup = true;
-	// Module Entry Point
-	this.entryPoint			= "cbmarkdown";
 	// CF Mapping
 	this.cfmapping			= "cbmarkdown";
 	// Module Dependencies That Must Be Loaded First, use internal names or aliases
