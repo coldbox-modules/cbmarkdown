@@ -23,7 +23,7 @@ Just use the CommandBox to install or drop into your **modules** folder:
 `box install cbmarkdown`
 
 ## Models
-The module registers the following mapping in WireBox: `Processor@cbmarkdown`. Which is the class you will use to process mardown into HTML.  There is one simple function to call on the processor:
+The module registers the following mapping in WireBox: `Processor@cbmarkdown`. Which is the class you will use to process markdown into HTML.  There is one simple function to call on the processor:
 
 * `toHTML( required txt )` - Convert markdown text to HTML.
 
