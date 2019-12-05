@@ -62,7 +62,7 @@ component accessors=true singleton{
 		structAppend( arguments.options, defaultOptions(), false );
 
 		var staticTableExtension = javaloader.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
-		return javaloader.create( "com.vladsch.flexmark.util.options.MutableDataSet" )
+		return javaloader.create( "com.vladsch.flexmark.util.data.MutableDataSet" )
 			.init()
 			.set(
 				staticTableExtension.COLUMN_SPANS,
