@@ -1,27 +1,33 @@
 {
-    "name":"cbmarkdown Builder",
-    "version":"3.0.0",
-    "slug":"cbmarkdown-shell",
-    "dependencies":{
-        "coldbox":"^4.3.0",
-        "cbjavaloader":"^1.4.0",
-        "workbench":"git+https://github.com/Ortus-Solutions/unified-workbench.git",
-        "cbemoji":"^1.0.1"
-    },
-    "devDependencies":{
-        "testbox":"^2.6.0+156"
-    },
-    "installPaths":{
-        "coldbox":"coldbox",
-        "testbox":"testbox/",
-        "workbench":"workbench",
-        "cbjavaloader":"modules/cbjavaloader",
-        "cbemoji":"modules/cbemoji"
-    },
-    "testbox":{
-        "runner":"http://localhost:49616"
-    },
+	"name" 		: "ColdBox Markdown",
+	"version"	: "3.3.0",
+	"location"  : "http://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbmarkdown/@build.version@/cbmarkdown-@build.version@.zip",
+	"author" 	: "Ortus Solutions.com <info@ortussolutions.com>",
+	"slug"		: "cbmarkdown",
+	"type"		: "modules",
+	"homepage"	: "https://github.com/coldbox-modules/cbmarkdown",
+	"documentation"		: "https://github.com/coldbox-modules/cbmarkdown",
+	"repository"		: { "type" : "git", "url" : "https://github.com/coldbox-modules/cbmarkdown" },
+	"shortDescription"	: "ColdBox Module that provides markdown processing",
+	"license"			: [
+		{ "type" : "Apache2", "url" : "http://www.apache.org/licenses/LICENSE-2.0.html" }
+	],
+	"contributors"		: [
+
+	],
+	"dependencies" 	:{
+		"cbjavaloader":"^2.0.0",
+		"cbemoji":"^1.0.1"
+	},
+    "ignore":[
+        "**/.*",
+        "tests",
+        "*/.md"
+    ],
     "scripts":{
-        "postVersion":"recipe workbench/bump.boxr"
+		"toMaster":"recipe build/toMaster.boxr",
+		"format": "cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --overwrite",
+        "format:watch": "cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --watch",
+        "format:check": "cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --check"
     }
 }
