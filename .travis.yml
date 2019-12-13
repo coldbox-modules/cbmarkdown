@@ -32,7 +32,7 @@ install:
   # Install Commandbox
   - sudo apt-get update && sudo apt-get --assume-yes install rsync jq commandbox
   # Install CommandBox Supporting Librarires
-  - box install commandbox-cfconfig,commandbox-dotenv,commandbox-docbox
+  - box install commandbox-cfconfig,commandbox-dotenv,commandbox-docbox,commandbox-cfformat
   # If using auto-publish, you will need to provide your API token with this line:
   - box config set endpoints.forgebox.APIToken=$FORGEBOX_API_TOKEN > /dev/null
 
@@ -54,6 +54,8 @@ script:
   #- curl http://localhost:60299/tests/runner.cfm?reporter=json -o testresults.json && cat testresults.json
   # move back to build dir to build it
   - cd $TRAVIS_BUILD_DIR
+  # Check formatting
+  - box run-script format:check
   # Build Project
   - box task run taskfile=build/Build target=run :version=${TARGET_VERSION} :projectName=${MODULE_ID} :buildID=${TRAVIS_BUILD_NUMBER} :branch=${TRAVIS_BRANCH}
   # Cat results for debugging
