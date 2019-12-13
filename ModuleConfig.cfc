@@ -8,19 +8,19 @@
 component {
 
 	// Module Properties
-	this.title = "ColdBox Markdown Processor";
-	this.author = "Ortus Solutions, Corp";
-	this.webURL = "http://www.ortussolutions.com/products/codexwiki";
-	this.description = "Markdown processor for ColdBox applications";
-	this.version = "@build.version@+@build.number@";
+	this.title              = "ColdBox Markdown Processor";
+	this.author             = "Ortus Solutions, Corp";
+	this.webURL             = "http://www.ortussolutions.com/products/codexwiki";
+	this.description        = "Markdown processor for ColdBox applications";
+	this.version            = "@build.version@+@build.number@";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
-	this.viewParentLookup = true;
+	this.viewParentLookup   = true;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
 	this.layoutParentLookup = true;
 	// CF Mapping
-	this.cfmapping = "cbmarkdown";
+	this.cfmapping          = "cbmarkdown";
 	// Module Dependencies That Must Be Loaded First, use internal names or aliases
-	this.dependencies = [ "cbjavaloader", "cbemoji" ];
+	this.dependencies       = [ "cbjavaloader", "cbemoji" ];
 
 	/**
 	 * Configure this module
@@ -29,13 +29,13 @@ component {
 		settings = {
 			tableOptions : {
 				// Treat consecutive pipes at the end of a column as defining spanning column.
-				columnSpans : true,
+				columnSpans                 : true,
 				// Whether table body columns should be at least the number or header columns.
-				appendMissingColumns : true,
+				appendMissingColumns        : true,
 				// Whether to discard body columns that are beyond what is defined in the header
-				discardExtraColumns : true,
+				discardExtraColumns         : true,
 				// Class name to use on tables
-				className : "table",
+				className                   : "table",
 				// When true only tables whose header lines contain the same number of columns as the separator line will be recognized
 				headerSeparationColumnMatch : true
 			}
