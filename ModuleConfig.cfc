@@ -12,7 +12,7 @@ component {
 	this.author             = "Ortus Solutions, Corp";
 	this.webURL             = "http://www.ortussolutions.com/products/codexwiki";
 	this.description        = "Markdown processor for ColdBox applications";
-	this.version            = "@build.version@+@build.number@";
+	this.version            = "3.3.0+35";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
 	this.viewParentLookup   = true;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
@@ -27,7 +27,26 @@ component {
 	 */
 	function configure(){
 		settings = {
-			tableOptions : {
+			// Looks for www or emails and converts them to links
+			autoLinkUrls             : true,
+			// Creates anchor links for headings
+			anchorLinks              : true,
+			// Set the anchor id
+			anchorSetId              : true,
+			// Set the anchor id but also the name
+			achorSetName             : true,
+			// Do we create the anchor for the full header or just before it. True is wrap, false is just create anchor tag
+			anchorWrapText           : false,
+			// The class(es) to apply to the anchor
+			anchorClass              : "anchor",
+			// raw html prefix. Added before heading text, wrapped or unwrapped
+			anchorPrefix             : "",
+			// raw html suffix. Added before heading text, wrapped or unwrapped
+			anchorSuffix             : "",
+			// Enable youtube embedded link transformer
+			enableYouTubeTransformer : false,
+			// Table options
+			tableOptions             : {
 				// Treat consecutive pipes at the end of a column as defining spanning column.
 				columnSpans                 : true,
 				// Whether table body columns should be at least the number or header columns.
