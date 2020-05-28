@@ -29,9 +29,9 @@
         "*/.md"
     ],
     "scripts":{
-        "toMaster":"recipe build/toMaster.boxr",
-        "format":"cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --overwrite",
-        "format:watch":"cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --watch",
-        "format:check":"cfformat ModuleConfig.cfc,models/**/*.cfc,test-harness/tests/specs/**/*.cfc --check"
+        "release":"recipe build/release.boxr",
+        "format":"cfformat run models/,test-harness/tests/,*.cfc --overwrite",
+        "format:watch":"cfformat watch models/,test-harness/tests/,*.cfc ./.cfformat.json",
+        "format:check":"cfformat check models/,test-harness/tests/,*.cfc"
     }
 }

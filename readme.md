@@ -31,6 +31,10 @@ The module registers the following mapping in WireBox: `Processor@cbmarkdown`. W
 
 * `toHTML( required txt )` - Convert markdown text to HTML.
 
+### HTML to Markdown
+
+You can also use our `toMarkdown()` function to convert any HTML to markdown equivalent.
+
 ## Options
 
 A subset of the flexmark options are supported.  These can be configured in your module settings in your `config/Coldbox.cfc` via the `modulesettings` struct.
@@ -38,19 +42,38 @@ A subset of the flexmark options are supported.  These can be configured in your
 ```
 moduleSettings = {
 	cbmarkdown = {
-			tableOptions = {
+		// Looks for www or emails and converts them to links
+		autoLinkUrls             : true,
+		// Creates anchor links for headings
+		anchorLinks              : true,
+		// Set the anchor id
+		anchorSetId              : true,
+		// Set the anchor id but also the name
+		achorSetName             : true,
+		// Do we create the anchor for the full header or just before it. True is wrap, false is just create anchor tag
+		anchorWrapText           : false,
+		// The class(es) to apply to the anchor
+		anchorClass              : "anchor",
+		// raw html prefix. Added before heading text, wrapped or unwrapped
+		anchorPrefix             : "",
+		// raw html suffix. Added before heading text, wrapped or unwrapped
+		anchorSuffix             : "",
+		// Enable youtube embedded link transformer
+		enableYouTubeTransformer : false,
+		// Table options
+		tableOptions             : {
 			// Treat consecutive pipes at the end of a column as defining spanning column.
-			columnSpans = true,
+			columnSpans                 : true,
 			// Whether table body columns should be at least the number or header columns.
-			appendMissingColumns = true,
+			appendMissingColumns        : true,
 			// Whether to discard body columns that are beyond what is defined in the header
-			discardExtraColumns = true,
+			discardExtraColumns         : true,
 			// Class name to use on tables
-			className = "table",
+			className                   : "table",
 			// When true only tables whose header lines contain the same number of columns as the separator line will be recognized
-			headerSeparationColumnMatch = true
+			headerSeparationColumnMatch : true
 		}
-	}
+	} // end markdown settings
 };
 ```
 
@@ -59,7 +82,7 @@ Copyright Since 2005 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
 www.ortussolutions.com
 ********************************************************************************
 
-#### HONOR GOES TO GOD ABOVE ALL
+### HONOR GOES TO GOD ABOVE ALL
 
 Because of His grace, this project exists. If you don't like this, then don't read it, its not for you.
 
