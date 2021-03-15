@@ -1,7 +1,7 @@
 {
     "name":"ColdBox Markdown",
     "version":"3.5.0",
-    "location":"http://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbmarkdown/@build.version@/cbmarkdown-@build.version@.zip",
+    "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbmarkdown/@build.version@/cbmarkdown-@build.version@.zip",
     "author":"Ortus Solutions.com <info@ortussolutions.com>",
     "slug":"cbmarkdown",
     "type":"modules",
