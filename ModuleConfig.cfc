@@ -45,6 +45,12 @@ component {
 			anchorSuffix             : "",
 			// Enable youtube embedded link transformer
 			enableYouTubeTransformer : false,
+			// default null, custom inline code open HTML
+			codeStyleHTMLOpen		 : '<code>',
+			// default null, custom inline code close HTML
+			codeStyleHTMLClose		 : '</code>',
+			// default "language-", prefix used for generating the <code> class for a fenced code block, only used if info is not empty and language is not defined in
+			fencedCodeLanguageClassPrefix : "brush: ",
 			// Table options
 			tableOptions             : {
 				// Treat consecutive pipes at the end of a column as defining spanning column.
