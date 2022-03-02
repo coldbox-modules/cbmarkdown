@@ -146,21 +146,21 @@ component accessors=true singleton {
 				arguments.options.anchorSuffix
 			)
 			.set(
-				variables.StaticParser.CODE_STYLE_HTML_OPEN,
+				variables.HtmlRenderer.CODE_STYLE_HTML_OPEN,
 				javacast(
 					"string",
 					arguments.options.codeStyleHTMLOpen
 				)
 			)
 			.set(
-				variables.StaticParser.CODE_STYLE_HTML_CLOSE,
+				variables.HtmlRenderer.CODE_STYLE_HTML_CLOSE,
 				javacast(
 					"string",
 					arguments.options.codeStyleHTMLClose
 				)
 			)
 			.set(
-				variables.StaticParser.FENCED_CODE_LANGUAGE_CLASS_PREFIX,
+				variables.HtmlRenderer.FENCED_CODE_LANGUAGE_CLASS_PREFIX,
 				javacast(
 					"string",
 					arguments.options.fencedCodeLanguageClassPrefix
