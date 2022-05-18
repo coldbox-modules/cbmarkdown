@@ -22,10 +22,13 @@
 			// Error/Exception Handling
 			exceptionHandler        : "",
 			onInvalidEvent          : "",
-			customErrorTemplate     : "/coldbox/system/includes/BugReport.cfm",
+			customErrorTemplate     : "/coldbox/system/exceptions/Whoops.cfm",
 			// Application Aspects
 			handlerCaching          : false,
 			eventCaching            : false
+		};
+
+		moduleSettings = {
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
@@ -42,17 +45,15 @@
 		};
 
 		// Register interceptors as an array, we need order
-		interceptors = [
-			// SES
-			{ class : "coldbox.system.interceptors.SES" }
-		];
+		interceptors = [];
 
 		// LogBox DSL
 		logBox = {
 			// Define Appenders
 			appenders : {
-				files : {
-					class      : "coldbox.system.logging.appenders.RollingFileAppender",
+				myConsole : { class : "ConsoleAppender" },
+				files     : {
+					class      : "RollingFileAppender",
 					properties : { filename : "tester", filePath : "/#appMapping#/logs" }
 				}
 			},
@@ -66,7 +67,7 @@
 	/**
 	 * Load the Module you are testing
 	 */
-	function afterAspectsLoad( event, interceptData, rc, prc ){
+	function cbLoadInterceptorHelpers( event, interceptData, rc, prc ){
 		controller
 			.getModuleService()
 			.registerAndActivateModule( moduleName = request.MODULE_NAME, invocationPath = "moduleroot" );
