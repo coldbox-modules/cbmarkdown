@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ----
 
+## [3.5.0] => 2022-MAY-18
+
+### Added
+
+* New module template updates
+* Add options for configuring code blocks and how they render thanks to @michaelborn
+* Migration to github actions
+
+----
+
 ## [3.4.0] => 2020-MAY-28
 
 ### Added
@@ -21,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * New TaskList extension
 * New Strikethrough extension
 * New Subscript extension
-  
+
 ----
 
 ## [3.3.0] => 2019-DEC-13

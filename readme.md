@@ -17,7 +17,7 @@ Apache License, Version 2.0.
 ## System Requirements
 
 - Lucee 5+
-- ColdFusion 2016+
+- ColdFusion 2018+
 
 ## Instructions
 
@@ -29,7 +29,7 @@ Just use the CommandBox to install or drop into your **modules** folder:
 
 The module registers the following mapping in WireBox: `Processor@cbmarkdown`. Which is the class you will use to process markdown into HTML.  There is one simple function to call on the processor:
 
-* `toHTML( required txt )` - Convert markdown text to HTML.
+- `toHTML( required txt )` - Convert markdown text to HTML.
 
 ### HTML to Markdown
 
@@ -39,7 +39,7 @@ You can also use our `toMarkdown()` function to convert any HTML to markdown equ
 
 A subset of the flexmark options are supported.  These can be configured in your module settings in your `config/Coldbox.cfc` via the `modulesettings` struct.
 
-```
+```js
 moduleSettings = {
 	cbmarkdown = {
 		// Looks for www or emails and converts them to links
@@ -60,6 +60,12 @@ moduleSettings = {
 		anchorSuffix             : "",
 		// Enable youtube embedded link transformer
 		enableYouTubeTransformer : false,
+		// override HTML to use for wrapping style.
+		codeStyleHTMLOpen		 : '<code class="code inline">',
+		// override HTML to use for wrapping style.
+		codeStyleHTMLClose		 : '</code>',
+		// add a class prefix to the "fenced" code blocks, i.e. ```js. Useful for supporting various syntax highlighters.
+		fencedCodeLanguageClassPrefix : "brush",
 		// Table options
 		tableOptions             : {
 			// Treat consecutive pipes at the end of a column as defining spanning column.
@@ -90,7 +96,7 @@ Because of His grace, this project exists. If you don't like this, then don't re
 By whom also we have access by faith into this grace wherein we stand, and rejoice in hope of the glory of God.
 And not only so, but we glory in tribulations also: knowing that tribulation worketh patience;
 And patience, experience; and experience, hope:
-And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the 
+And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the
 Holy Ghost which is given unto us. ." Romans 5:5
 
 ### THE DAILY BREAD
