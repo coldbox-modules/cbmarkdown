@@ -60,6 +60,12 @@ moduleSettings = {
 		anchorSuffix             : "",
 		// Enable youtube embedded link transformer
 		enableYouTubeTransformer : false,
+		// override HTML to use for wrapping style.
+		codeStyleHTMLOpen		 : '<code class="code inline">',
+		// override HTML to use for wrapping style.
+		codeStyleHTMLClose		 : '</code>',
+		// add a class prefix to the "fenced" code blocks, i.e. ```js. Useful for supporting various syntax highlighters.
+		fencedCodeLanguageClassPrefix : "brush",
 		// Table options
 		tableOptions             : {
 			// Treat consecutive pipes at the end of a column as defining spanning column.

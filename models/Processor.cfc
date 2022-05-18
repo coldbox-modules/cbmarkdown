@@ -145,6 +145,27 @@ component accessors=true singleton {
 				anchorLinkExtension.ANCHORLINKS_TEXT_SUFFIX,
 				arguments.options.anchorSuffix
 			)
+			.set(
+				variables.HtmlRenderer.CODE_STYLE_HTML_OPEN,
+				javacast(
+					"string",
+					arguments.options.codeStyleHTMLOpen
+				)
+			)
+			.set(
+				variables.HtmlRenderer.CODE_STYLE_HTML_CLOSE,
+				javacast(
+					"string",
+					arguments.options.codeStyleHTMLClose
+				)
+			)
+			.set(
+				variables.HtmlRenderer.FENCED_CODE_LANGUAGE_CLASS_PREFIX,
+				javacast(
+					"string",
+					arguments.options.fencedCodeLanguageClassPrefix
+				)
+			)
 			// Add Table Options
 			.set(
 				staticTableExtension.COLUMN_SPANS,
