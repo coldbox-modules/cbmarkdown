@@ -3,8 +3,9 @@
  * Copyright 2013 Ortus Solutions, Corp
  * www.ortussolutions.com
  * ---
- * @author Luis Majano
  * Convert markdown to HTML via the MarkdownJ Java library
+ *
+ * @author Luis Majano
  */
 component accessors=true singleton {
 
@@ -24,15 +25,12 @@ component accessors=true singleton {
 	/**
 	 * Constructor
 	 *
-	 * @javaLoader The javaloader class
+	 * @javaLoader        The javaloader class
 	 * @javaLoader.inject loader@cbjavaloader
-	 * @options The module options
-	 * @options.inject coldbox:modulesettings:cbmarkdown
+	 * @options           The module options
+	 * @options.inject    coldbox:modulesettings:cbmarkdown
 	 */
-	function init(
-		required javaloader,
-		required struct options
-	){
+	function init( required javaloader, required struct options ){
 		// store references
 		variables.javaloader   = arguments.javaLoader;
 		variables.StaticParser = javaloader.create( "com.vladsch.flexmark.parser.Parser" );
@@ -51,6 +49,7 @@ component accessors=true singleton {
 
 	/**
 	 * Convert markdown to HTML
+	 *
 	 * @txt The markdown text to convert
 	 */
 	function toHTML( required txt ){
@@ -60,6 +59,7 @@ component accessors=true singleton {
 
 	/**
 	 * Convert HTML to Markdown
+	 *
 	 * @html The html to convert to markdown
 	 */
 	function toMarkdown( required html ){
@@ -71,7 +71,7 @@ component accessors=true singleton {
 	 *
 	 * @options A struct of options for the parser.
 	 *
-	 * @return  A parser options object.
+	 * @return A parser options object.
 	 */
 	private function createOptions( required struct options ){
 		var staticTableExtension = javaloader.create( "com.vladsch.flexmark.ext.tables.TablesExtension" );
@@ -79,7 +79,9 @@ component accessors=true singleton {
 
 		var extensionsToLoad = [
 			staticTableExtension.create(),
-			javaloader.create( "com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughSubscriptExtension" ).create(),
+			javaloader
+				.create( "com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughSubscriptExtension" )
+				.create(),
 			javaloader.create( "com.vladsch.flexmark.ext.gfm.tasklist.TaskListExtension" ).create(),
 			javaloader.create( "com.vladsch.flexmark.ext.toc.TocExtension" ).create()
 		];
@@ -107,103 +109,49 @@ component accessors=true singleton {
 			// Autolink + Anchor Link Options
 			.set(
 				variables.StaticParser.WWW_AUTO_LINK_ELEMENT,
-				javacast(
-					"boolean",
-					arguments.options.autoLinkUrls
-				)
+				javacast( "boolean", arguments.options.autoLinkUrls )
 			)
-			.set(
-				anchorLinkExtension.ANCHORLINKS_SET_ID,
-				javacast(
-					"boolean",
-					arguments.options.anchorSetId
-				)
-			)
-			.set(
-				anchorLinkExtension.ANCHORLINKS_SET_NAME,
-				javacast(
-					"boolean",
-					arguments.options.achorSetName
-				)
-			)
+			.set( anchorLinkExtension.ANCHORLINKS_SET_ID, javacast( "boolean", arguments.options.anchorSetId ) )
+			.set( anchorLinkExtension.ANCHORLINKS_SET_NAME, javacast( "boolean", arguments.options.achorSetName ) )
 			.set(
 				anchorLinkExtension.ANCHORLINKS_WRAP_TEXT,
-				javacast(
-					"boolean",
-					arguments.options.anchorWrapText
-				)
+				javacast( "boolean", arguments.options.anchorWrapText )
 			)
-			.set(
-				anchorLinkExtension.ANCHORLINKS_ANCHOR_CLASS,
-				arguments.options.anchorClass
-			)
-			.set(
-				anchorLinkExtension.ANCHORLINKS_TEXT_PREFIX,
-				arguments.options.anchorPrefix
-			)
-			.set(
-				anchorLinkExtension.ANCHORLINKS_TEXT_SUFFIX,
-				arguments.options.anchorSuffix
-			)
+			.set( anchorLinkExtension.ANCHORLINKS_ANCHOR_CLASS, arguments.options.anchorClass )
+			.set( anchorLinkExtension.ANCHORLINKS_TEXT_PREFIX, arguments.options.anchorPrefix )
+			.set( anchorLinkExtension.ANCHORLINKS_TEXT_SUFFIX, arguments.options.anchorSuffix )
 			.set(
 				variables.HtmlRenderer.CODE_STYLE_HTML_OPEN,
-				javacast(
-					"string",
-					arguments.options.codeStyleHTMLOpen
-				)
+				javacast( "string", arguments.options.codeStyleHTMLOpen )
 			)
 			.set(
 				variables.HtmlRenderer.CODE_STYLE_HTML_CLOSE,
-				javacast(
-					"string",
-					arguments.options.codeStyleHTMLClose
-				)
+				javacast( "string", arguments.options.codeStyleHTMLClose )
 			)
 			.set(
 				variables.HtmlRenderer.FENCED_CODE_LANGUAGE_CLASS_PREFIX,
-				javacast(
-					"string",
-					arguments.options.fencedCodeLanguageClassPrefix
-				)
+				javacast( "string", arguments.options.fencedCodeLanguageClassPrefix )
 			)
 			// Add Table Options
 			.set(
 				staticTableExtension.COLUMN_SPANS,
-				javacast(
-					"boolean",
-					arguments.options.tableOptions.columnSpans
-				)
+				javacast( "boolean", arguments.options.tableOptions.columnSpans )
 			)
 			.set(
 				staticTableExtension.APPEND_MISSING_COLUMNS,
-				javacast(
-					"boolean",
-					arguments.options.tableOptions.appendMissingColumns
-				)
+				javacast( "boolean", arguments.options.tableOptions.appendMissingColumns )
 			)
 			.set(
 				staticTableExtension.DISCARD_EXTRA_COLUMNS,
-				javacast(
-					"boolean",
-					arguments.options.tableOptions.discardExtraColumns
-				)
+				javacast( "boolean", arguments.options.tableOptions.discardExtraColumns )
 			)
-			.set(
-				staticTableExtension.CLASS_NAME,
-				arguments.options.tableOptions.className
-			)
+			.set( staticTableExtension.CLASS_NAME, arguments.options.tableOptions.className )
 			.set(
 				staticTableExtension.HEADER_SEPARATOR_COLUMN_MATCH,
-				javacast(
-					"boolean",
-					arguments.options.tableOptions.headerSeparationColumnMatch
-				)
+				javacast( "boolean", arguments.options.tableOptions.headerSeparationColumnMatch )
 			)
 			// Load extensions
-			.set(
-				variables.StaticParser.EXTENSIONS,
-				extensionsToLoad
-			);
+			.set( variables.StaticParser.EXTENSIONS, extensionsToLoad );
 	}
 
 }

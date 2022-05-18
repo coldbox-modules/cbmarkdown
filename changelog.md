@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * New module template updates
 * Add options for configuring code blocks and how they render thanks to @michaelborn
+* Migration to github actions
 
 ----
 
