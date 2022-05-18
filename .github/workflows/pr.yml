@@ -7,7 +7,7 @@ on:
 
 jobs:
   tests:
-    uses: coldbox-modules/cbfs/.github/workflows/tests.yml@development
+    uses: coldbox-modules/cbmarkdown/.github/workflows/tests.yml@development
 
   # Format PR
   format:

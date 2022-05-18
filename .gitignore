@@ -13,7 +13,6 @@ test-harness/docbox/**
 test-harness/testbox/**
 test-harness/logs/**
 test-harness/modules/**
-modules/*
 
 # modules
 modules/**

@@ -1,4 +1,4 @@
-name: cbfs CI
+name: cbmarkdown CI
 
 # Only on Development we build snapshots
 on:
@@ -8,7 +8,7 @@ on:
       - master
 
 env:
-  MODULE_ID: cbfs
+  MODULE_ID: cbmarkdown
 
 jobs:
   #############################################
