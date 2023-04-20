@@ -1,4 +1,19 @@
-[![Build Status](https://travis-ci.org/coldbox-modules/cbmarkdown.svg?branch=development)](https://travis-ci.org/coldbox-modules/cbmarkdown)
+<p align="center">
+	<img src="https://www.ortussolutions.com/__media/coldbox-185-logo.png">
+	<br>
+	<img src="https://www.ortussolutions.com/__media/wirebox-185.png" height="125">
+	<img src="https://www.ortussolutions.com/__media/cachebox-185.png" height="125" >
+	<img src="https://www.ortussolutions.com/__media/logbox-185.png"  height="125">
+</p>
+
+<p align="center">
+	Copyright Since 2005 ColdBox Platform by Luis Majano and Ortus Solutions, Corp
+	<br>
+	<a href="https://www.coldbox.org">www.coldbox.org</a> |
+	<a href="https://www.ortussolutions.com">www.ortussolutions.com</a>
+</p>
+
+----
 
 # Welcome to the CBMarkdown Project
 
@@ -13,6 +28,7 @@ Apache License, Version 2.0.
 - https://github.com/coldbox-modules/cbmarkdown
 - http://forgebox.io/view/cbmarkdown
 - https://github.com/vsch/flexmark-java
+- https://jar-download.com/?search_box=flexmark
 
 ## System Requirements
 
@@ -43,31 +59,31 @@ A subset of the flexmark options are supported.  These can be configured in your
 moduleSettings = {
 	cbmarkdown = {
 		// Looks for www or emails and converts them to links
-		autoLinkUrls             : true,
+		autoLinkUrls                  : true,
 		// Creates anchor links for headings
-		anchorLinks              : true,
+		anchorLinks                   : true,
 		// Set the anchor id
-		anchorSetId              : true,
+		anchorSetId                   : true,
 		// Set the anchor id but also the name
-		achorSetName             : true,
+		achorSetName                  : true,
 		// Do we create the anchor for the full header or just before it. True is wrap, false is just create anchor tag
-		anchorWrapText           : false,
+		anchorWrapText                : false,
 		// The class(es) to apply to the anchor
-		anchorClass              : "anchor",
+		anchorClass                   : "anchor",
 		// raw html prefix. Added before heading text, wrapped or unwrapped
-		anchorPrefix             : "",
+		anchorPrefix                  : "",
 		// raw html suffix. Added before heading text, wrapped or unwrapped
-		anchorSuffix             : "",
+		anchorSuffix                  : "",
 		// Enable youtube embedded link transformer
-		enableYouTubeTransformer : false,
-		// override HTML to use for wrapping style.
-		codeStyleHTMLOpen		 : '<code class="code inline">',
-		// override HTML to use for wrapping style.
-		codeStyleHTMLClose		 : '</code>',
-		// add a class prefix to the "fenced" code blocks, i.e. ```js. Useful for supporting various syntax highlighters.
-		fencedCodeLanguageClassPrefix : "brush",
+		enableYouTubeTransformer      : false,
+		// default null, custom inline code open HTML
+		codeStyleHTMLOpen             : "<code>",
+		// default null, custom inline code close HTML
+		codeStyleHTMLClose            : "</code>",
+		// default "language-", prefix used for generating the <code> class for a fenced code block, only used if info is not empty and language is not defined in
+		fencedCodeLanguageClassPrefix : "language-",
 		// Table options
-		tableOptions             : {
+		tableOptions                  : {
 			// Treat consecutive pipes at the end of a column as defining spanning column.
 			columnSpans                 : true,
 			// Whether table body columns should be at least the number or header columns.

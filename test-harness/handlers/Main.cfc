@@ -7,7 +7,7 @@ component {
 
 	// Index
 	any function index( event, rc, prc ){
-		prc.html = processor.toHTML( renderView( "main/markdown.md" ) );
+		prc.html = processor.toHTML( view( "main/markdown.md" ) );
 		event.setView( "main/index" );
 	}
 
