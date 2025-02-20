@@ -1,6 +1,6 @@
 {
     "name":"ColdBox Markdown",
-    "version":"3.7.0",
+    "version":"3.8.0",
     "location":"https://downloads.ortussolutions.com/ortussolutions/coldbox-modules/cbmarkdown/@build.version@/cbmarkdown-@build.version@.zip",
     "author":"Ortus Solutions.com <info@ortussolutions.com>",
     "slug":"cbmarkdown",
@@ -24,7 +24,7 @@
         "cbemoji":"^1.0.1"
     },
     "devDependencies":{
-		"commandbox-boxlang":"*",
+        "commandbox-boxlang":"*",
         "commandbox-cfformat":"*",
         "commandbox-docbox":"*"
     },
