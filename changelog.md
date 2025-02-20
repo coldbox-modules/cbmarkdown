@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- BoxLang certification
+- Github Actions updates
+
+## [3.6.0] - 2023-04-20
+
+### Added
+
 - Upgraded flexmark to latest stable 0.64.0 with all dependencies and extensions
 - New github actions
 - ColdBox 7 auto testing
