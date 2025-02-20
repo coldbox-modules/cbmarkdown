@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.7.0] - 2025-02-20
+
 ## [3.6.0] - 2023-04-20
 
 ### Added
@@ -80,6 +82,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Create first module version
 
-[Unreleased]: https://github.com/coldbox-modules/cbmarkdown/compare/v3.6.0...HEAD
-
+[unreleased]: https://github.com/coldbox-modules/cbmarkdown/compare/v3.7.0...HEAD
+[3.7.0]: https://github.com/coldbox-modules/cbmarkdown/compare/v3.6.0...v3.7.0
 [3.6.0]: https://github.com/coldbox-modules/cbmarkdown/compare/b7dd6a1ce28bc186a27b3eb5d2e07430449378c6...v3.6.0
