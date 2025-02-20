@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- BoxLang certification
+- Github Actions updates
+
 ## [3.6.0] - 2023-04-20
 
 ### Added
